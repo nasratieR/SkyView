@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { SafeAreaView, StyleSheet, TextInput, Button, View, Image } from 'react-native';
+import MeteoView from './MeteoView';
 
 const SearchBar = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [searchResult, setSearchResult] = useState(null);
 
   const handleInputChange = (text) => {
     setSearchTerm(text);
   };
 
   const handleSubmit = () => {
-    // Appeler la fonction de recherche fournie par le composant parent
-    onSearch(searchTerm);
+    const result = onSearch(searchTerm);
+    setSearchResult(result);
   };
 
   return (
@@ -21,11 +23,13 @@ const SearchBar = ({ onSearch }) => {
           placeholder="ville"
           onChangeText={handleInputChange}
         />
-        <Button title="Chercher" mode="contained" onPress={handleSubmit} />
+        <Button style={styles.boutton} title="Chercher"  onPress={handleSubmit} />
         <View style={styles.imageContainer}>
           <Image source={require('../assets/pngtree-location.png')} style={styles.image} />
         </View>
+
       </View>
+      <MeteoView text={searchResult}/>
     </SafeAreaView>
   );
 };
@@ -53,6 +57,10 @@ const styles = StyleSheet.create({
     height: 30,
     resizeMode: 'contain',
   },
+  boutton : {
+    color: '#fff',
+    backgroundColor: "CCC",
+  }
 });
 
 export default SearchBar;
