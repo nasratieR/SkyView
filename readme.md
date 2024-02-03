@@ -1,4 +1,4 @@
-# SkyView
+SkyView
 
 ## Installation
 
@@ -6,12 +6,12 @@
 
 2. Rendez vous dans le dossier
 
-```cd SkyView```
+``` cd SkyView ```
 
 3. Installez les dépendances :
 
-```npm install```
+``` npm install ```
 
 ## Utilisation
 
-```npm start```
+``` npm start ```
