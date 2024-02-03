@@ -1,4 +1,6 @@
 # SkyView
+ 
+ SkyView est une application mobile météo développée en React 
 
 ## Installation
 
